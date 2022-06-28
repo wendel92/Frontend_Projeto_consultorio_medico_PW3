@@ -1,0 +1,74 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="card-header">
+                <h3>CADASTRO DE MÉDICO</h3>
+            </div>
+
+            <div class="card-body">
+
+                <form action="http://localhost:3000/medico/cadastrarMedico" 
+                method="post">
+
+                    <label for="nome_medico"></label>
+                    <input class="form-control" type="text" 
+                    name="nome_medico" id="nome_medico"
+                    placeholder="NOME DO MÉDICO">
+
+                    <label for="email_medico"></label>
+                    <input class="form-control" type="text" 
+                    name="email_medico" id="email_medico"
+                    placeholder="EMAIL DO MÉDICO">
+
+                    <label for="telefone_medico"></label>
+                    <input class="form-control" type="text" 
+                    name="telefone_medico" id="telefone_medico"
+                    placeholder="TELEFONE DO MÉDICO">
+
+                    <label for="celular_medico"></label>
+                    <input class="form-control" type="text" 
+                    name="celular_medico" id="celular_medico"
+                    placeholder="CELULAR DO MÉDICO">
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle mt-4 mb-2" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ESPECIALIDADES
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-item">
+                                <label for="tblEspecialidadeId"></label>
+                                <% especialidades.forEach(especialidade=>{ %>
+                                <input type="checkbox" name="tblEspecialidadeId" id="tblEspecialidadeId"
+                                    value="<%= especialidade.id %>" onchange="cbChange(this)"
+                                    class="btn btn-outline-info mt-1 ml-1 mb-1 link-check">
+                                <%= especialidade.nome_especialidade %>⠀⠀⠀⠀⠀⠀⠀</a>
+                                <%  }); %>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                
+                    <div>
+                    <button class="btn btn-success mt-2">CADASTRAR</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<%- include('../partials/footer.ejs') %>
+
+</html>
